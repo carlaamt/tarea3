@@ -1,0 +1,12 @@
+.caja{
+    width: 200px;
+    height: 200px;
+    border: 1px solid #000;
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}
+.cajita{
+    background-color: #000;
+    color: #fff;
+}
