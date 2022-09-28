@@ -45,7 +45,7 @@ $(document).ready(function() {
                 "<tr><td>"+item.id+"</td><td>"+item.nombre+"</td><td>"+item.email+
                 "</td><td><button class='editar btn btn-success'><i class='fa-solid fa-pen-to-square text-white'></i></button>"+
                 "<button class='borrar btn btn-danger'><i class='fa-solid fa-circle-minus text-white'></i></button>"+
-                "<button class='detalles btn btn-primary'><i class='fa-solid fa-circle-info text-white'></i></button></td></tr>"
+                "<button type='button' class='detalles btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-circle-info text-white'></i></button></td></tr>"
                 );
             });
             $('#add').click(function(){
@@ -55,10 +55,10 @@ $(document).ready(function() {
                     var unombre = prompt('¿Nombre?');
                     var uemail = prompt('¿Email?');
                     $('#tabla tbody').append(
-                        "<tr><td>"+uid+"</td><td>"+unombre+"</td><td>"+uemail+
+                        "<tr><td>"+item.uid+"</td><td>"+item.unombre+"</td><td>"+item.uemail+
                         "</td><td><button class='editar btn btn-success'><i class='fa-solid fa-pen-to-square text-white'></i></button>"+
                         "<button class='borrar btn btn-danger'><i class='fa-solid fa-circle-minus text-white'></i></button>"+
-                        "<button class='detalles btn btn-primary'><i class='fa-solid fa-circle-info text-white'></i></button></td></tr>"
+                        "<button type='button' class='detalles btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-circle-info text-white'></i></button></td></tr>"
                     );
                 }
             });
@@ -70,10 +70,10 @@ $(document).ready(function() {
                     var nemail = prompt('¿Email?');
                     $(this).parents('tr').remove();
                     $('#tabla tbody').prepend(
-                        "<tr><td>"+nid+"</td><td>"+nnombre+"</td><td>"+nemail+
+                        "<tr><td>"+item.nid+"</td><td>"+item.nnombre+"</td><td>"+item.nemail+
                         "</td><td><button class='editar btn btn-success'><i class='fa-solid fa-pen-to-square text-white'></i></button>"+
                         "<button class='borrar btn btn-danger'><i class='fa-solid fa-circle-minus text-white'></i></button>"+
-                        "<button class='detalles btn btn-primary'><i class='fa-solid fa-circle-info text-white'></i></button></td></tr>"
+                        "<button type='button' class='detalles btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-circle-info text-white'></i></button></td>/tr>"
                     );
                 }
             });
@@ -83,11 +83,10 @@ $(document).ready(function() {
                     $(this).parents('tr').remove();
                 }
             });
-            /* No logre que la info se viera de uno en uno, perdon :') ni tampoco que se viera la imagen :c */
             $('.detalles').click(function(){
                 $.each(data, function(i, item){
-                    alert('Los datos de este usuario son:\nID: ' + item.id + '\nNombre: ' + item.nombre +
-                    '\nEmail: ' + item.email + '\nEdad: ' + item.edad  + '\nAvatar :' + item.avatar);
+                    $('#vtnmodal .modal-body').html('<ul><li>ID: ' + item.id + '</li><li>Nombre: ' + item.nombre +
+                    '</li><li>Email: ' + item.email + '</li><li>Edad: ' + item.edad  + '</li><li>Avatar :' + item.avatar + '</li></ul>');
                 });
             });
         }
