@@ -49,13 +49,13 @@ $(document).ready(function() {
                 );
             });
             $('#add').click(function(){
+                var num = 10;
                 var agregar = confirm('¿Desea agregar un usuario?');
                 if (agregar == true){
-                    var uid = parseInt(prompt('¿ID?'));
                     var unombre = prompt('¿Nombre?');
                     var uemail = prompt('¿Email?');
                     $('#tabla tbody').append(
-                        "<tr><td>"+item.uid+"</td><td>"+item.unombre+"</td><td>"+item.uemail+
+                        "<tr><td>"+unombre+"</td><td>"+uemail+
                         "</td><td><button class='editar btn btn-success'><i class='fa-solid fa-pen-to-square text-white'></i></button>"+
                         "<button class='borrar btn btn-danger'><i class='fa-solid fa-circle-minus text-white'></i></button>"+
                         "<button type='button' class='detalles btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-circle-info text-white'></i></button></td></tr>"
