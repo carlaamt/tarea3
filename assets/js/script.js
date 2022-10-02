@@ -84,10 +84,11 @@ $(document).ready(function() {
                 }
             });
             $('.detalles').click(function(){
-                $.each(data, function(i, item){
-                    $('#vtnmodal .modal-body').html('<ul><li>ID: ' + item.id + '</li><li>Nombre: ' + item.nombre +
-                    '</li><li>Email: ' + item.email + '</li><li>Edad: ' + item.edad  + '</li><li>Avatar :' + item.avatar + '</li></ul>');
-                });
+                $('.modal-body ul').html(
+                    "<li>ID: " + $(this).parents('tr').children(':nth-child(1)').html() + 
+                    "</li><li>Nombre: " +  $(this).parents('tr').children(':nth-child(2)').html() + 
+                    "</li><li>Email: " +  $(this).parents('tr').children(':nth-child(3)').html() + "</li>"
+                );
             });
         }
     });
