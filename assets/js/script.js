@@ -48,33 +48,35 @@ $(document).ready(function() {
                 "<button type='button' class='detalles btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-circle-info text-white'></i></button></td></tr>"
                 );
             });
+            uid = 10;
             $('#add').click(function(){
                 var agregar = confirm('¿Desea agregar un usuario?');
                 if (agregar == true){
-                    var numid = 10;
                     var unombre = prompt('¿Nombre?');
                     var uemail = prompt('¿Email?');
                     $('#tabla tbody').append(
-                        "<tr><td>"+numid+"</td><td>"+unombre+"</td><td>"+uemail+
+                        "<tr><td>"+uid+++"</td><td>"+unombre+"</td><td>"+uemail+
                         "</td><td><button class='editar btn btn-success'><i class='fa-solid fa-pen-to-square text-white'></i></button>"+
                         "<button class='borrar btn btn-danger'><i class='fa-solid fa-circle-minus text-white'></i></button>"+
                         "<button type='button' class='detalles btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-circle-info text-white'></i></button></td></tr>"
                     );
-                    numid = 1++;
                 }
             });
             $('.editar').click(function(){
                 var editar = confirm('¿Desea realizar algún cambio a este usuario?');
                 if (editar == true){
-                    var nid = parseInt(prompt('¿ID?'));
+                    var nid = parseInt($(this).parents('tr').children().first().html());
                     var nnombre = prompt('¿Nombre?');
                     var nemail = prompt('¿Email?');
                     $(this).parents('tr').remove();
                     $('#tabla tbody').prepend(
-                        "<tr><td>"+item.nid+"</td><td>"+item.nnombre+"</td><td>"+item.nemail+
+                        "<tr><td>"+nid+"</td><td>"+nnombre+"</td><td>"+nemail+
                         "</td><td><button class='editar btn btn-success'><i class='fa-solid fa-pen-to-square text-white'></i></button>"+
                         "<button class='borrar btn btn-danger'><i class='fa-solid fa-circle-minus text-white'></i></button>"+
                         "<button type='button' class='detalles btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-circle-info text-white'></i></button></td>/tr>"
+                    );
+                    $('.modal-body ul').html(
+                        "<li>ID: "+nid+"</li><li>Nombre: "+nnombre+"</li><li>Email: "+nemail+"</li>"
                     );
                 }
             });
