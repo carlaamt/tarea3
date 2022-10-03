@@ -61,7 +61,7 @@ $(document).ready(function() {
                         "<button type='button' class='detalles btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'><i class='fa-solid fa-circle-info text-white'></i></button></td></tr>"
                     );
                 }
-                num = ++1;
+                var num = ++1;
             });
             $('.editar').click(function(){
                 var editar = confirm('¿Desea realizar algún cambio a este usuario?');
